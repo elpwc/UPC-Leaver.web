@@ -5,7 +5,7 @@ $(function () {
   function test_mode() {
     $("#btn1").attr("disabled", "true");
     $("#online_message").removeAttr("hidden");
-    $("#test_title").text("(即将上线)");
+    $("#test_title").text("(开发中)");
   }
 
   function init() {
