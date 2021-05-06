@@ -1,11 +1,12 @@
 $(function () {
-  //test_mode();
+  test_mode();
   init();
 
   function test_mode() {
     $("#btn1").attr("disabled", "true");
     $("#online_message").removeAttr("hidden");
     $("#test_title").text("(开发中)");
+    $("#btn1").attr("class", "btn btn-secondary");
   }
 
   function init() {
