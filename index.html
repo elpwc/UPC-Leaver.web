@@ -5,46 +5,48 @@
   <meta charset="utf-8" />
   <title>⊌PC Leaver - 批量请假服务</title>
   <link rel="stylesheet" href="main.css" />
+  <link rel="stylesheet" href="bootstrap.min.css" />
   <script src="jquery-3.3.1.min.js"></script>
   <script src="main.js"></script>
+  <script src="bootstrap.min.js"></script>
 </head>
 
 <body>
-  <div id="body_div">
+  <div id="body_div" class="container-fluid">
     <div class="head_div">
       <h1><span id="logo">&nbsp;⊌</span><span id="downp">P</span>C Leaver - 批量请假服务&nbsp;<span id="test_title"></span>
       </h1><br>
     </div>
-    <div id="form_div">
+    <div id="form_div" class="card">
 
       <p class="red">*请确保已连接校园网</p>
       <br>
-      学号：<input type="text" name="stuXh"><br>
-      姓名：<input type="text" name="stuXm"><br>
-      学院：<input type="text" name="stuXy"><br>
-      专业：<input type="text" name="stuZy"><br>
-      民族：<input type="text" name="stuMz"><br>
-      班级：<input type="text" name="stuBj"><br>
+      <input type="text" class="form-control" placeholder="学号" name="stuXh"><br>
+      <input type="text" class="form-control" placeholder="姓名" name="stuXm"><br>
+      <input type="text" class="form-control" placeholder="学院" name="stuXy"><br>
+      <input type="text" class="form-control" placeholder="专业" name="stuZy"><br>
+      <input type="text" class="form-control" placeholder="民族" name="stuMz"><br>
+      <input type="text" class="form-control" placeholder="班级" name="stuBj"><br>
       <p class="red">*以上信息请按照<a
           href="https://app.upc.edu.cn/uc/api/oauth/index?redirect=http://stu.gac.upc.edu.cn:8089/xswc&appid=200200819124942787&state=2">平安石大请假页面</a>内的信息如实填写
       </p><br>
       <br>
-      联系方式：<input type="text" name="stuLxfs" value="1145141919" /><br>
-      家长电话：<input type="text" name="stuJzdh" value="1145141919" /><br>
-      交通方式：<input type="text" name="stuJtfs" value="步行" /><br>
-      外出事由：<input type="text" name="stuReason" value="吃饭" /><br>
-      外出地址：<input type="text" name="stuWcdz" value="黄岛区内" /><br>
-      外出紧急联系人：<input type="text" name="stuJjlxr" value="舍友" /><br>
-      紧急联系人方式：<input type="text" name="stuJjlxrLxfs" value="1145141919" /><br>
+      联系方式<input type="text" class="form-control" name="stuLxfs" value="1145141919" /><br>
+      家长电话<input type="text" class="form-control" name="stuJzdh" value="1145141919" /><br>
+      交通方式<input type="text" class="form-control" name="stuJtfs" value="步行" /><br>
+      外出事由<input type="text" class="form-control" name="stuReason" value="吃饭" /><br>
+      外出地址<input type="text" class="form-control" name="stuWcdz" value="黄岛区内" /><br>
+      外出紧急联系人<input type="text" class="form-control" name="stuJjlxr" value="舍友" /><br>
+      紧急联系人方式<input type="text" class="form-control" name="stuJjlxrLxfs" value="1145141919" /><br>
       *以上信息可以随意填写
       <br><br>
-      <big>请假天数(1-100)：</big><input type="number" id="len_text" value="60" /><br>
-      请假开始日期：<input id="start_date" type="date" value="2020-10-10" /><br>
-      请假结束日期：<span id="end_date">2020-10-10</span><br>
-      每日外出时间(随意设定)：<input id="out_time" type="time" value="08:00" /><br>
-      <button id="btn1">一键请假</button>
+      <big>请假天数(1-100)</big><input type="number" class="form-control" id="len_text" value="60" /><br>
+      请假开始日期<input id="start_date" type="date" class="form-control" value="2020-10-10" /><br>
+      请假结束日期<br><span id="end_date">2020-10-10</span><br><br>
+      每日外出时间(随意设定)<input id="out_time" class="form-control" type="time" value="08:00" /><br>
+      <button id="btn1" class="btn btn-primary">一键请假</button>
       <p class="red" id="online_message" hidden>将于5月上旬上线(大概)</p>
-      <span id="res">12</span>
+      <span id="res">res</span>
       <br>
       *所有信息仅在前端与校方接口验证，不会在服务器存储。<br>
       *成功之后请假批准会在每天凌晨2点多在平安石大内推送。<br>
