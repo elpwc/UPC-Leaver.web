@@ -16,7 +16,6 @@ $(function () {
   }
 
   $("#btn1").click(function () {
-    alert(1);
     sendRequest($("#len_text").val(), $("#start_date").val(), $("#out_time").val());
   });
 
@@ -43,8 +42,8 @@ function getHeaders() {
     //'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:86.0) Gecko/20100101 Firefox/86.0',
     'Accept': '*/*',
     'Accept-Language': 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
-    'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
-    'X-Requested-With': 'XMLHttpRequest'
+    'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+    //'X-Requested-With': 'XMLHttpRequest'
     //'Origin': 'http://stu.gac.upc.edu.cn:8089'
     //'Connection': 'keep-alive',
     //'Referer': 'http://stu.gac.upc.edu.cn:8089/xswc&appid=200200819124942787&state=2',
