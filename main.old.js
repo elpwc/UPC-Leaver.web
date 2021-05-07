@@ -17,27 +17,7 @@ $(function () {
   }
 
   $("#btn1").click(function () {
-    //sendRequest($("#len_text").val(), $("#start_date").val(), $("#out_time").val());
-
-    $.ajax({
-      url: 'main.php',
-      type: 'post',
-      dataType: 'json',
-      //data: JSON.stringify({data:{status: "start"}}),
-      data: data,
-      cache: false,
-      success: function (res) {
-        $("#res").text(res);
-        if (res.resultStat == "success") {
-
-        } else {
-
-        }
-      },
-      error: function (e) {
-
-      }
-    });
+    sendRequest($("#len_text").val(), $("#start_date").val(), $("#out_time").val());
   });
 
   $("#len_text").bind("input propertychange", function () {
@@ -58,6 +38,19 @@ $(function () {
 
 });
 
+function getHeaders() {
+  headers = {
+    //'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:86.0) Gecko/20100101 Firefox/86.0',
+    'Accept': '*/*',
+    'Accept-Language': 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+    'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+    //'X-Requested-With': 'XMLHttpRequest'
+    //'Origin': 'http://stu.gac.upc.edu.cn:8089'
+    //'Connection': 'keep-alive',
+    //'Referer': 'http://stu.gac.upc.edu.cn:8089/xswc&appid=200200819124942787&state=2',
+  };
+  return headers;
+}
 
 function getData() {
   data = {
@@ -70,16 +63,54 @@ function getData() {
     'stuLxfs': String($("input[name='stuLxfs']").val()),
     'stuJzdh': String($("input[name='stuJzdh']").val()),
     'stuJtfs': String($("input[name='stuJtfs']").val()),
-    'stuStartTime': String($("#out_time").val()),
+    'stuStartTime': '',
     'stuReason': String($("input[name='stuReason']").val()),
     'stuWcdz': String($("input[name='stuWcdz']").val()),
     'stuJjlxr': String($("input[name='stuJjlxr']").val()),
-    'stuJjlxrLxfs': String($("input[name='stuJjlxrLxfs']").val()),
-    'startDate' : String($("#start_date").val()),
-    'times' : String($("#len_text").val())
+    'stuJjlxrLxfs': String($("input[name='stuJjlxrLxfs']").val())
   };
   return data;
 }
+
+function sendRequestOnce(header, data, date, time) {
+  data.stuStartTime = date.format("yyyy-mm-dd ") + time +":00";
+  $.ajax({
+    url: 'http://stu.gac.upc.edu.cn:8089/stuqj/addQjMess',
+    type: 'post',
+    dataType: 'json',
+    //data: JSON.stringify({data:{status: "start"}}),
+    data: data,
+    cache: false,
+    headers: header,
+    success: function (res) {
+      $("#res").text(res);
+      if(res.resultStat == "success"){
+
+      }else{
+
+      }
+    },
+    error: function (e) {
+
+    }
+  });
+}
+
+function sendRequest(times, startTime_, time) {
+  headers = getHeaders();
+  data = getData();
+  var startTime = new Date(startTime_);
+  var t_time = new Date(
+    startTime.getFullYear(),
+    startTime.getMonth(),
+    startTime.getDate()
+  );
+  for (i = 0; i < times; i++) {
+    t_time.setDate(startTime.getDate() + i);
+    sendRequestOnce(headers, data, t_time, time);
+  }
+}
+
 
 Date.prototype.format = function (fmt) {
   var o = {
@@ -92,11 +123,14 @@ Date.prototype.format = function (fmt) {
     "S": this.getMilliseconds()                  //毫秒
   };
 
+  //  获取年份 
+  // ①
   if (/(y+)/i.test(fmt)) {
     fmt = fmt.replace(RegExp.$1, (this.getFullYear() + "").substr(4 - RegExp.$1.length));
   }
 
   for (var k in o) {
+    // ②
     if (new RegExp("(" + k + ")", "i").test(fmt)) {
       fmt = fmt.replace(
         RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
