@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8" />
-  <title>⊌PC Leaver - 批量请假服务</title>
+  <title>⊌PC Leaver - 批量出校请假服务</title>
   <link rel="stylesheet" href="./lib/main.css" />
   <!--link rel="stylesheet" href="./lib/bootstrap.min.css" /-->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
@@ -16,7 +16,7 @@
 <body>
   <div id="body_div" class="container-fluid">
     <div class="head_div">
-      <h1><span id="logo">&nbsp;⊌</span><span id="downp">P</span>C Leaver - 批量请假服务&nbsp;<span id="test_title"></span>
+      <h1><span id="logo">&nbsp;⊌</span><span id="downp">P</span>C Leaver - 批量出校请假服务&nbsp;<span id="test_title"></span>
       </h1><br>
       <p>
         <?php
@@ -40,9 +40,9 @@
 
       <!--<p class="red">*请确保已连接校园网</p>-->
       <br>
-      <input type="text" class="form-control" placeholder="学号" name="stuXh"><br>
+      <input type="text" class="form-control" placeholder="学号(乱输也会显示成功是学校接口的问题，和工具本身没关系()只要输对了还是可以请假()" name="stuXh"><br>
+      <input type="text" class="form-control" placeholder="姓名(输入什么都能通过，但必须有(会在公众号的通知里反映出来)" name="stuXm"><br>
       <!--
-      <input type="text" class="form-control" placeholder="姓名" name="stuXm"><br>
       <input type="text" class="form-control" placeholder="学院" name="stuXy"><br>
       <input type="text" class="form-control" placeholder="专业" name="stuZy"><br>
       <input type="text" class="form-control" placeholder="民族" name="stuMz"><br>
@@ -78,18 +78,14 @@
     <big>匿名留言板()</big>
       <input type="text" class="form-control" placeholder="名字(可留空)" name="comment-name" value="" /><br>
       <input type="text" class="form-control" placeholder="留言" name="comment-text" id="comment-tb" value="" /><br>
-      <p hidden id="comment-tips" class="red">写上留言才能发送哦~</p><br>
+      <p hidden id="comment-tips" class="red">写上留言才能发送嗷</p><br>
       <button id="btn2" class="btn btn-primary">发送</button>
       <div id="comment-div">
         
       </div>
 
-
     </div>
   </div>
-
-
-
 
 </body>
 
