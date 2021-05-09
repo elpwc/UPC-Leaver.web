@@ -25,3 +25,11 @@
 #form_div{
   padding-left:15px;
 }
+.my-conment-name{
+  color:blue;
+  font-size: larger;
+}
+.my-conment-nameless{
+  color:lightslategrey;
+  font-size: larger;
+}
