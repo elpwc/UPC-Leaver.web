@@ -2,7 +2,7 @@
 require "dbcfg.php";
 $data = array(
   'stuXh' => $_POST['stuXh'],  # 学号
-  'stuXm' => $_POST['stuXh'],  # 姓名
+  'stuXm' => $_POST['stuXm'],  # 姓名
   'stuXy' => '',  # 学院
   'stuZy' => '',  # 专业
   'stuMz' => '',  # 民族

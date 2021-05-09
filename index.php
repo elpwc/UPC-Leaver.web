@@ -41,7 +41,7 @@
       <!--<p class="red">*请确保已连接校园网</p>-->
       <br>
       <input type="text" class="form-control" placeholder="学号(乱输也会显示成功是学校接口的问题，和工具本身没关系()只要输对了还是可以请假()" name="stuXh"><br>
-      <input type="text" class="form-control" placeholder="姓名(输入什么都能通过，但必须有(会在公众号的通知里反映出来)" name="stuXm"><br>
+      <input type="text" class="form-control" placeholder="姓名(不管输入得对不对都能通过，但必须有(输入的内容会在公众号的通知里反映出来)" name="stuXm"><br>
       <!--
       <input type="text" class="form-control" placeholder="学院" name="stuXy"><br>
       <input type="text" class="form-control" placeholder="专业" name="stuZy"><br>
@@ -71,6 +71,7 @@
       <br>
       *所有信息仅用于与校方接口验证，不会在服务器存储。<br>
       *成功之后请假批准会在每天凌晨2点多在平安石大内推送。<br>
+      *由于校园网凌晨不对外开放，每日0点左右-8点左右不能使用。<br>
     </div>
     <br><br>
 
