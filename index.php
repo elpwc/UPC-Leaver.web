@@ -27,9 +27,8 @@
           $sql = "SELECT COUNT(DISTINCT(stu_id)) FROM record;";
           $result = mysqli_query($link, $sql);
           if ($result->num_rows > 0) {
-              // 输出数据
               while ($row = $result->fetch_assoc()) {
-                echo "已有".$row["COUNT(DISTINCT(stu_id))"]."人使用了此工具";
+                  echo "已有".$row["COUNT(DISTINCT(stu_id))"]."人使用了此工具";
               }
           }
           
