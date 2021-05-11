@@ -15,9 +15,29 @@
   vertical-align: bottom;
 }
 #btn1{
-  width:150px;
+  width:200px;
   height:50px;
   font-size: 15px;
+}
+#btn2{
+  width:130px;
+  height:40px;
+  font-size: 15px;
+}
+#btn3{
+  width:250px;
+  height:40px;
+  font-size: 13px;
+}
+#btn4{
+  width:100px;
+  height:35px;
+  font-size: 12px;
+}
+#btn5{
+  width:100px;
+  height:35px;
+  font-size: 12px;
 }
 .red{
   color:red;
@@ -32,4 +52,11 @@
 .my-conment-nameless{
   color:lightslategrey;
   font-size: larger;
+}
+#littlescript{
+  font-size: 10px;
+  color: darkgrey;
+}
+#bottom-div{
+  text-align: center;
 }

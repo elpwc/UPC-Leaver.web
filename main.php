@@ -3,18 +3,18 @@ require "dbcfg.php";
 $data = array(
   'stuXh' => $_POST['stuXh'],  # 学号
   'stuXm' => $_POST['stuXm'],  # 姓名
-  'stuXy' => '',  # 学院
-  'stuZy' => '',  # 专业
-  'stuMz' => '',  # 民族
-  'stuBj' => '',  # 班级
-  'stuLxfs' => '',  # 联系方式
-  'stuJzdh' => '',  # 家长电话
-  'stuJtfs' => '',  # 交通方式
+  'stuXy' => $_POST['stuXy'],  # 学院
+  'stuZy' => $_POST['stuZy'],  # 专业
+  'stuMz' => $_POST['stuMz'],  # 民族
+  'stuBj' => $_POST['stuBj'],  # 班级
+  'stuLxfs' => $_POST['stuLxfs'],  # 联系方式
+  'stuJzdh' => $_POST['stuJzdh'],  # 家长电话
+  'stuJtfs' => $_POST['stuJtfs'],  # 交通方式
   'stuStartTime' => '',  # 外出时间，可以自动生成，留空即可
-  'stuReason' => '',  # 外出事由
-  'stuWcdz' => '',  # 外出地址（仅限青岛市）
-  'stuJjlxr' => '',  # 外出紧急联系人
-  'stuJjlxrLxfs' => ''  # 紧急联系人联系方式
+  'stuReason' => $_POST['stuReason'],  # 外出事由
+  'stuWcdz' => $_POST['stuWcdz'],  # 外出地址（仅限青岛市）
+  'stuJjlxr' => $_POST['stuJjlxr'],  # 外出紧急联系人
+  'stuJjlxrLxfs' => $_POST['stuJjlxrLxfs']  # 紧急联系人联系方式
 );
 
 $link = @mysqli_connect(HOST, USER, PASS, DBNAME) or die();
@@ -33,9 +33,9 @@ date_timestamp_set($date, strtotime($startdate));
 //$res = array();
 $restext = '|';
 for ($i = 0; $i < (int)$times; $i++) {
-    $data['stuStartTime'] = date_format($date, "Y-m-d ").'08:00:00';
+    $data['stuStartTime'] = date_format($date, "Y-m-d ").$_POST['out_time'].':00';
     $res = json_decode(send_post('http://stu.gac.upc.edu.cn:8089/stuqj/addQjMess', $data));
-    $msg = isset($res->mess) ?$res->mess: '???';
+    $msg = isset($res->mess) ?$res->mess: '未知错误，可能学校没有开启接口。';
     $restext.='<p>'.date_format($date, "Y-m-d：").$msg.'</p>';
     /*
     if($res['resultStat']=='success'){
