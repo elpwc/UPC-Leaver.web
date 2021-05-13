@@ -18,7 +18,7 @@ if ($result->num_rows > 0) {
             if ($row["name"] == '') {
                 $name_text = 'class="my-conment-nameless">~无名氏~';
             }
-            $res.= '<div class="card"><p><span>'.$row["time"].'</span>&nbsp;&nbsp;<span '.$name_text.'</span></p><p>'.$row["text"].'</p></div>';
+            $res.= '<div class="card"><p><span>#'.$row["id"]." ".$row["time"].'</span>&nbsp;&nbsp;<span '.$name_text.'</span></p><p>'.$row["text"].'</p></div>';
         } elseif ($i>$end) {
             break;
         }

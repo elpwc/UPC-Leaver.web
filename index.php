@@ -81,7 +81,7 @@
         </div>
       </div>
       <br>
-      <div style="background: url('src/bgi.jpg');height: 250px;width: 960px;">
+      <div style="background: url('src/bgi.jpg');">
         <button id="btn1" class="btn btn-primary">一键申请外出！！！</button>
         <p class="red" id="online_message" hidden>将于5月上旬上线(大概)</p>
         <span id="tips-message"></span>
@@ -97,15 +97,48 @@
     <br><br>
 
     <div class="card">
-      <big style="text-align: center;">༺༺匿名留言板༻༻</big><span id="littlescript" style="text-align: center;">(支持除script, style外的html标签(小声))</span>
+      <big style="text-align: center;">༺༺匿名留言板༻༻</big><span id="littlescript" style="text-align: center;">(支持除script,
+        style外的html标签(小声))</span>
       <input type="text" class="form-control" placeholder="名字 (可留空)" name="comment-name" value="" /><br>
       <input type="text" class="form-control" placeholder="留言 (出现bug的话，也请写在这里orz)" name="comment-text" id="comment-tb"
         value="" /><br>
       <p hidden id="comment-tips" class="red">写上留言才能发送嗷</p>
-      <button id="btn2" class="btn btn-primary">发送留言</button>
+      <button id="btn2" class="btn btn-primary">发送留言</button><br>
+      <div style="text-align: center;">
+
+        <ul class="pagination">
+          <?php
+                  $link = @mysqli_connect(HOST, USER, PASS, DBNAME) or die();
+                  mysqli_set_charset($link, 'utf8');
+                  
+                  $sql = "SELECT COUNT(id) FROM messages;";
+                  $result = mysqli_query($link, $sql);
+                  $count = 0;
+                  $each_page = 10;
+
+                  if ($result->num_rows > 0) {
+                      while ($row = $result->fetch_assoc()) {
+                          $count = (int)$row["COUNT(id)"];
+                      }
+                  }
+                  $page_num = ceil((double)$count / (double)$each_page);
+                  for ($i = 1; $i<=$page_num; $i++) {
+                      if ($i == 1) {
+                          echo('<li class="page-item"><a class="page-link" href="javascript:comment_reload('.(string)($each_page*($i-1)).','.(string)($each_page*$i-1).','.(string)$i.','.(string)$page_num.');">第一页</a></li>');
+                      }
+                      echo('<li class="page-item" id="page-no'.(string)$i.'"><a class="page-link" href="javascript:comment_reload('.(string)($each_page*($i-1)).','.(string)($each_page*$i-1).','.(string)$i.','.(string)$page_num.');">'.(string)$i.'</a></li>');
+                      if ($i == $page_num) {
+                          echo('<li class="page-item"><a class="page-link" href="javascript:comment_reload('.(string)($each_page*($i-1)).','.(string)($each_page*$i-1).','.(string)$i.','.(string)$page_num.');">最后一页</a></li>');
+                      }
+                  }
+        ?>
+
+        </ul>
+      </div>
       <div id="comment-div">
 
       </div>
+
       <div style="text-align: center;">
 
         <ul class="pagination">
