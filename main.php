@@ -35,7 +35,15 @@ $restext = '|';
 for ($i = 0; $i < (int)$times; $i++) {
     $data['stuStartTime'] = date_format($date, "Y-m-d ").$_POST['out_time'].':00';
     $res = json_decode(send_post('http://stu.gac.upc.edu.cn:8089/stuqj/addQjMess', $data));
-    $msg = isset($res->mess) ?$res->mess: '未知错误，可能学校没有开启接口。';
+    $msg = isset($res->mess) ?$res->mess: '<span class="red">未知错误，可能学校没有开启接口。</span>';
+    if($msg == "无学号姓名信息")
+    {
+      $msg = "<span class='red'>无学号姓名信息</span>";
+    }
+    if($msg == "成功")
+    {
+      $msg = "<span class='green'>成功</span>";
+    }
     $restext.='<p>'.date_format($date, "Y-m-d：").$msg.'</p>';
     /*
     if($res['resultStat']=='success'){

@@ -43,7 +43,7 @@
 
       <!--<p class="red">*请确保已连接校园网</p>-->
       <br>
-      <input type="text" class="form-control" placeholder="学号 (乱输也会显示成功是学校接口的问题，和工具本身没关系()只要输对了还是可以请假()"
+      <input type="text" class="form-control" placeholder="学号 (乱输也会显示成功是学校接口的问题，和工具本身没关系，只要填对了还是可以请假)"
         name="stuXh"><br>
       <input type="text" class="form-control" placeholder="姓名 (不管输入得对不对都能通过，但必须有(输入的内容会在公众号的通知里反映出来)" name="stuXm"><br>
       <!--
@@ -86,14 +86,15 @@
         <p class="red" id="online_message" hidden>将于5月上旬上线(大概)</p>
         <span id="tips-message"></span>
         <div id="result-message"></div>
+        <div id="result-setsumei-message" class="card">
+          
+        </div>
         <br>
         *信息仅用于与校方接口验证，不会在服务器存储。<br>
         *成功之后请假批准会在每天凌晨2点多在平安石大内推送。<br>
         *由于校园网凌晨不对外开放，每日0点左右-8点左右不能使用。<br>
         *申请成功后可以在每天23-24点以外不限次数出入校门。<br>
-        <span class="red">*校方接口似乎不接受留培学号的申请，就算显示成功了还是出不去(推测)。</span><br>
-        <span class="red">*有无留培同学申请完去校门刷卡测试一下，结果发在下面留言板我参考一下谢谢了()。</span><br>
-        <span class="red">*↑↑↑到现在还没人回复..试一下给我参考一下吧呜呜看完就删红字。</span><br>
+        <span class="red">*仅支持留培以外的本科生和研究生，校方接口似乎不接受留培学号的申请，就算显示成功了还是出不去(推测)。</span><br>
         <br>
       </div>
     </div>
@@ -107,11 +108,11 @@
         value="" /><br>
       <p hidden id="comment-tips" class="red">写上留言才能发送嗷</p>
       <div class="row">
-        <div class="col-1">
+        <div class="col-2">
           <button id="btn2" class="btn btn-primary">发送留言</button><br>
         </div>
 
-        <div class="col-11" style="text-align: center;">
+        <div class="col-10" style="text-align: center;">
 
           <ul class="pagination">
             <?php
