@@ -42,23 +42,24 @@
     <div id="form_div" class="card">
 
       <!--<p class="red">*请确保已连接校园网</p>-->
-      <br>
-      <input type="text" class="form-control" placeholder="学号 (乱输也会显示成功是学校接口的问题，和工具本身没关系，只要填对了还是可以请假)"
+      <p class="red"><b>由于申请间隔被调整为了1分钟以上，目前只能一天一天地每隔一分钟进行申请，工具后端正在全面改版中orz()</b></p>
+      
+      <input type="text" class="form-control" placeholder="学号 (请正确填入)"
         name="stuXh"><br>
-      <input type="text" class="form-control" placeholder="姓名 (不管输入得对不对都能通过，但必须有(输入的内容会在公众号的通知里反映出来)" name="stuXm"><br>
+      <input type="text" class="form-control" placeholder="姓名 (请正确填入)" name="stuXm"><br>
       <!--
 
       *以上信息可以随意填写
       -->
-      <big>请假天数(1-100)</big><input type="number" class="form-control" id="len_text" value="60" /><br>
+      <big>请假天数(1-100)</big><input type="number" class="form-control" id="len_text" value="1" disabled /><br>
       请假开始日期<input id="start_date" type="date" class="form-control" value="2020-10-10" /><br>
       请假结束日期<br><span id="end_date">2020-10-10</span><br>
 
       <button id="btn3" class="btn btn-secondary" data-toggle="collapse" data-target="#collapse-div"
-        open="0">点此填写详细信息(防止暴露)</button>
+        open="0">点此填写详细信息(必填)</button>
       <div class="card">
         <div id="collapse-div" class="collapse">
-          <p class="red">这里的信息不填入也可以申请成功，如果实在想填又懒得手动填可以按一下下面的随机填入。<br>
+          <p class="red">这里的信息必须填入才能申请成功，可以按一下下面的随机填入。<br>
             （民族和紧急联系人姓名是按照人数占比随机生成的。其余的都是在均匀分布中随机选择）<br>
             （建议点一下随机填入再自己改内容）</p>
           <button id="btn4" class="btn btn-dark">随机填入</button>&nbsp;<button id="btn5"
@@ -82,7 +83,7 @@
       </div>
       <br>
       <div style="background: url('src/bgi.jpg');">
-        <button id="btn1" class="btn btn-primary">一键申请外出！！！</button>
+        <button id="btn1" class="btn btn-primary">一键申请外出</button>
         <p class="red" id="online_message" hidden>将于5月上旬上线(大概)</p>
         <span id="tips-message"></span>
         <div id="result-message"></div>
